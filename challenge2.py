@@ -1,7 +1,21 @@
-def count_to_summit(n):
-    assert n>=0
-    if n==0 or n==1:
-        return 1
+def can_balance_scales(arr):
+    total=sum(arr)
+    if total %2!=0:
+        return False
     else:
-        return count_to_summit(n-1)+count_to_summit(n-2)
-print(count_to_summit(4))
+
+        target=total/2
+        if target==0:
+            return
+        elif target<0:
+            return False
+        elif target!=0:
+
+            for i in arr:
+                target=target-i
+                arr=arr.pop(i)
+                can_balance_scales(arr)
+
+
+
+
